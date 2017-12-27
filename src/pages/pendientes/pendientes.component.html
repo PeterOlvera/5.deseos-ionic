@@ -5,12 +5,21 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let lista of _listaDeseos.listas">
-    <ion-card-header>
-      <h3>{{ lista.nombre }}</h3>
-    </ion-card-header>
+  <ion-card  *ngFor="let lista of _listaDeseos.listas">
+
+    <ion-item color="primary">
+      <div>{{ lista.nombre }}</div>
+      <ion-note item-right>
+         <div *ngIf="lista.items.length != 1; else elseBlock">{{ lista.items.length }} items</div>
+         <ng-template #elseBlock>{{ lista.items.length }} item</ng-template>
+      </ion-note>
+    </ion-item>
+
+    <hr>
+
     <ion-card-content *ngFor="let item of lista.items">
-      {{ item.nombre }}
+      <ion-icon *ngIf="!item.completado" ios="ios-square-outline" md="md-square-outline"></ion-icon>  {{ item.nombre }}
+      <ion-icon *ngIf="item.completado" ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>  {{ item.nombre }}
     </ion-card-content>
   </ion-card>
 
