@@ -14,8 +14,10 @@ import { ListaDeseosService } from './services/lista-deseos.service';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+//PIPES
 import { PlaceHolderPipe } from './pipes/placeholder.pipe';
 import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
+import { PendientesPipe } from './pipes/pendientes.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
     DetalleComponent,
     PlaceHolderPipe,
     CapitalizadoPipe,
+    PendientesPipe,
     TabsPage
   ],
   imports: [

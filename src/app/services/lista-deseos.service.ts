@@ -18,9 +18,14 @@ export class ListaDeseosService {
      if( localStorage.getItem("data") ){
       this.listas = JSON.parse( localStorage.getItem("data") );
      }
+     return this.listas;
    }
    agregarLista( lista:Lista ){
      this.listas.push( lista );
+     this.actualizarData();
+   }
+   eliminarLista( index:number ){
+     this.listas.splice( index,1 );
      this.actualizarData();
    }
 

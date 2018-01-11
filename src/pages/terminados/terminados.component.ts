@@ -1,11 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { ListaDeseosService } from '../../app/services/lista-deseos.service';
+import { DetalleComponent } from '../detalle/detalle.component';
 
 @Component({
   selector: 'selector',
   templateUrl: 'terminados.component.html',
 })
 export class TerminadosComponent implements OnInit {
-  constructor() {  }
+  constructor(
+    private _listaDeseos : ListaDeseosService,
+    private _navController:NavController
+  ) {  }
 
   ngOnInit() {}
+
+  verDetalle( lista, index ){
+    this._navController.push( DetalleComponent, { lista, index });
+  }
+
 }
